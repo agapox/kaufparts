@@ -1,0 +1,8 @@
+@import '_vars';
+
+
+@mixin font-base($font: $font-primary, $weight: nomal, $size: 16px) {
+  font-family: $font;
+  font-weight: $weight;
+  font-size: $size;
+}
