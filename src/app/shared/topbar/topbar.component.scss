@@ -1,0 +1,29 @@
+@import '../../../scss/base';
+
+:host {
+  .topbar {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: $color-alt;
+    color: #ffffff;
+    padding: 0 1rem;
+    @include font-base($font-primary, $weight: 500, $size: 14px);
+    .col {
+      display: inline-block;
+
+      &.login {
+        float: right;
+        a {
+          @include font-base($font-primary, $weight: 600, $size: 14px);
+          color: white;
+          cursor: pointer;
+          @include transition(color .2s ease-in-out);
+          &:hover {
+            color: $color-action;
+          }
+        }
+      }
+    }
+  }
+}

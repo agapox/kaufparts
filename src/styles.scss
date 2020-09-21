@@ -1,6 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'scss/base';
 
+* {
+  box-sizing: border-box;
+}
 body {
+  margin: 0;
   @include font-base($font-primary, $weight: 400, $size: 16px)
+}
+
+.container {
+  width: 100%;
+  max-width: $media-min-xxl;
+  margin: auto;
+  @include transition(all .2 ease-in-out);
+  @media (max-width: $media-max-xxl) {
+    max-width: $media-min-xl;
+  }
+  @media (max-width: $media-max-xl) {
+    max-width: 100%;
+  }
+  .row {
+    width: 100%;
+  }
 }

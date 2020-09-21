@@ -1,0 +1,111 @@
+@mixin font-base($font: $font-primary, $weight: nomal, $size: 16px) {
+  font-family: $font;
+  font-weight: $weight;
+  font-size: $size;
+}
+
+// FONT MIXINS
+@mixin font-size($size){
+  $rem: $size / 16;
+  font-size: $size * 1px;
+  font-size: $rem * 1rem;
+}
+@mixin line-height($size){
+  $rem: $size / 16;
+  line-height: $size * 1px;
+  line-height: $rem * 1rem;
+}
+
+// ANIMATION MIXINS
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
+
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+
+// CSS MIXINS
+
+@mixin box-shadow-std($top: 0rem, $left: 0.3rem, $blur: 1.4375rem, $spread: 0.2rem, $color: rgba(0, 0, 0, 0.07), $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $spread $color;
+    -moz-box-shadow:inset $top $left $blur $spread $color;
+    box-shadow:inset $top $left $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $spread $color;
+    -moz-box-shadow: $top $left $blur $spread $color;
+    box-shadow: $top $left $blur $spread $color;
+  }
+}
+
+@mixin border-radius-std ( $value: $base-border-radius ) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value;
+  // keeps background from busting out of border
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+
+@mixin opacity-std ( $value: 0.5 ) {
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" $value * 100 "";
+  filter: alpha(opacity= $value * 100 );
+  zoom: 1;
+}
+
+// DROPDOWN MIXINS
+
+@mixin dropdown-hide-base {
+	position: absolute;
+	background-color: #ffffff;
+	width: 50px;
+	right: 0;
+	visibility: hidden;
+  z-index: 999;
+	overflow: hidden;
+  @include border-radius-std($base-border-radius);
+	@include opacity-std(0);
+  @include box-shadow-std(0rem, 0.3rem, 1.4375rem, 0.2rem, rgba(0, 0, 0, 0.07));
+  @include transform(translateY(-10px));
+  @include transition(all 0.2s ease-out !important);
+}
+
+@mixin dropdown-show-base {
+	@include opacity-std(1);
+	visibility: visible;
+	transform: translateY(0px);
+}

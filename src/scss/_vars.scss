@@ -1,11 +1,31 @@
 // COLORS
-
 $color-primary: #80cbc2;
 $color-secondary: #dd344c;
 $color-alt: #253743;
 $color-alt2: #F8304C;
-
+$color-warning: #fff500;
+$color-action: #05CCC5;
 
 // FONTS
 $font-primary: 'Roboto', Arial, sans-serif;
 $font-secondary: 'Open Sans', Arial, sans-serif;
+
+// OTHERS
+$base-border-radius: 6px;
+
+// MEDIA QUERIES SIZES
+// media breakpoints para min-width
+$media-min-xs: 480px; // media query personalizada para dispositivos muy pequeños
+$media-min-sm: 576px;
+$media-min-md: 768px;
+$media-min-lg: 992px;
+$media-min-xl: 1200px;
+$media-min-xxl: 1600px;
+// media breakpoints para max-width
+$media-max-xxs: 359.99px; // media query personalizada para dispositivos muy pequeños
+$media-max-xs: 480px; // media query personalizada para dispositivos muy pequeños
+$media-max-sm: 575.98px;
+$media-max-md: 767.98px;
+$media-max-lg: 991.98px;
+$media-max-xl: 1199.98px;
+$media-max-xxl: 1599.98px;
